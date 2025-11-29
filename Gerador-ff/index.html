@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador-ff</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+        padding: 20px;
+    }
+    .box {
+        padding: 10px;
+        max-width: 400px;
+        margin: auto;
+    }
+    input, button, select {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #333;
+        background: #111;
+        color: white;
+        border-radius: 5px;
+    }
+    h2 {
+        text-align: center;
+        font-weight: normal;
+    }
+</style>
+</head>
+
+<body>
+<div class="box">
+    <h2>Gerador FF</h2>
+
+    <label>Domínio:</label>
+    <select id="dominio">
+        <option>@gmail.com</option>
+    </select>
+
+    <label>E-mail:</label>
+    <input id="email" readonly>
+
+    <label>Senha:</label>
+    <input id="senha" readonly>
+
+    <button onclick="gerar()">Gerar</button>
+</div>
+
+<script>
+function gerar() {
+    let chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let user = "";
+    for (let i = 0; i < 10; i++) {
+        user += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    let senha = Math.floor(10000000 + Math.random() * 90000000);
+
+    document.getElementById("email").value = user + "@gmail.com";
+    document.getElementById("senha").value = senha;
+}
+</script>
+
+</body>
+</html>
